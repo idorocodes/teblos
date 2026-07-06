@@ -88,7 +88,7 @@ const GlobalStyle = () => (
 function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b" style={{ borderColor: theme.line, background: theme.bgDeep }}>
-      <nav className="max-w-6xl mx-auto flex items-center justify-between px-6 py-6">
+      <nav className="max-w-6xl mx-auto flex items-center justify-between px-3 py-4">
         <div className="flex items-center gap-2">
           
           <span className="font-display text-2xl font-bold tracking-tighter">TEBLOS</span>
@@ -111,7 +111,7 @@ function Navbar() {
           </a>
           <a
             href="#pricing"
-            className="text-sm font-semibold px-6 py-2.5 rounded-full transition-all hover:scale-105 active:scale-95"
+            className="text-sm font-semibold  px-4 py-2 rounded-full transition-all hover:scale-105 active:scale-95"
             style={{ background: theme.gold, color: theme.bgDeep }}
           >
             Get API Access
@@ -125,23 +125,17 @@ function Navbar() {
 /* Hero Section */
 function Hero() {
   return (
-    <section className="max-w-6xl mx-auto px-6 pt-36 pb-20 flex flex-col items-center text-center" data-aos="fade-up">
+    <section className="max-w-6xl mx-auto px-6 pt-16 pb-20 flex flex-col items-center text-center" data-aos="fade-up">
  
       <div className="teblos-fade-up" >
-        <div
-          className="inline-flex items-center gap-2 text-xs font-mono tracking-widest px-4 py-2 rounded-full mb-8"
-          style={{ background: theme.bgPanel, border: `1px solid ${theme.line}` }}
-        >
-          <Radio size={14} color={theme.lime} />
-          LIVE ON TxLINE • WORLD CUP 2026
-        </div>
+    
 
-        <h1 className="font-display text-6xl md:text-7xl font-extrabold leading-[1.05] mb-8 max-w-4xl">
+        <h1 className="font-display text-4xl lg:text-7xl md:text-7xl font-extrabold leading-[1.05] mb-8 max-w-4xl">
           Every match moment{" "}
           <span style={{ color: theme.gold }}>worth acting on</span>, delivered instantly.
         </h1>
 
-        <p className="text-xl max-w-2xl mx-auto mb-10" style={{ color: theme.ash }}>
+        <p className="text-1xl lg:text-2xl max-w-2xl mx-auto mb-10" style={{ color: theme.ash }}>
           Teblos watches live football matches in real time, detects meaningful shifts in odds and momentum, 
           and delivers clear signals on demand — paid per call in stablecoin on Solana.
         </p>
@@ -149,7 +143,7 @@ function Hero() {
         <div className="flex flex-wrap justify-center gap-4">
           <a
             href="#pricing"
-            className="inline-flex items-center gap-3 text-base font-semibold px-8 py-4 rounded-2xl transition-all hover:scale-105 active:scale-95"
+            className="inline-flex items-center gap-3 text-base font-semibold px-4 py-3.5 rounded-2xl transition-all hover:scale-105 active:scale-95"
             style={{ background: theme.gold, color: theme.bgDeep }}
           >
             Connect Wallet &amp; Get Started
@@ -158,7 +152,7 @@ function Hero() {
 
           <a
             href="#docs"
-            className="inline-flex items-center gap-3 text-base font-medium px-8 py-4 rounded-2xl border transition-all hover:bg-white/5"
+            className="inline-flex items-center gap-3 text-base font-medium px-4 py-3.5 rounded-2xl border transition-all hover:bg-white/5"
             style={{ borderColor: theme.line }}
           >
             <BookOpen size={20} />
