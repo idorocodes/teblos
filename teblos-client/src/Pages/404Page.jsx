@@ -72,7 +72,7 @@ export default function Error404() {
             href="/signals"
             className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl font-medium text-lg border transition-all hover:bg-white/5"
             style={{ borderColor: theme.line, color: theme.chalk }}
-          >
+          >           
             <Radio size={22} />
             Browse Live Signals
           </a>

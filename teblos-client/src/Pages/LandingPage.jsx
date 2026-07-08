@@ -4,7 +4,7 @@
   Target,
   Wallet,
   ShieldCheck,
-  ArrowRight,
+ 
   BookOpen,
 } from "lucide-react";
 
@@ -19,7 +19,7 @@ const theme = {
   ash: "#8FA79C",
   line: "rgba(245,242,232,0.08)",
 };
-
+import { AppKitButton } from '@reown/appkit/react'
 const GlobalStyle = () => (
   <style>{`
     @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
@@ -108,13 +108,8 @@ function Navbar() {
             <BookOpen size={16} />
             Docs
           </a>
-          <a
-            href="#pricing"
-            className="text-sm font-semibold  px-4 py-2 rounded-full transition-all hover:scale-105 active:scale-95"
-            style={{ background: theme.gold, color: theme.bgDeep }}
-          >
-            Get API Access
-          </a>
+          
+          <a> < AppKitButton/> </a>
         </div>
       </nav>
     </header>
@@ -124,11 +119,11 @@ function Navbar() {
 /* Hero Section */
 function Hero() {
   return (
-    <section className="max-w-6xl mx-auto px-6 pt-16 pb-20 flex flex-col items-center text-center" data-aos="fade-up">
+    <section className="max-w-6xl mx-auto px-6 pt-26 pb-20 flex flex-col items-center text-center" data-aos="fade-up">
  
       <div className="teblos-fade-up" >
     
-
+ 
         <h1 className="font-display text-4xl lg:text-7xl md:text-7xl font-extrabold leading-[1.05] mb-8 max-w-4xl">
           Every match moment{" "}
           <span style={{ color: theme.gold }}>worth acting on</span>, delivered instantly.
@@ -139,25 +134,17 @@ function Hero() {
           and delivers clear signals on demand — paid per call in stablecoin on Solana.
         </p>
 
-        <div className="flex flex-wrap justify-center gap-4">
-          <a
-            href="#pricing"
-            className="inline-flex items-center gap-3 text-base font-semibold px-4 py-3.5 rounded-2xl transition-all hover:scale-105 active:scale-95"
-            style={{ background: theme.gold, color: theme.bgDeep }}
-          >
-            Connect Wallet &amp; Get Started
-            <ArrowRight size={20} />
-          </a>
-
-          <a
-            href="#docs"
-            className="inline-flex items-center gap-3 text-base font-medium px-4 py-3.5 rounded-2xl border transition-all hover:bg-white/5"
-            style={{ borderColor: theme.line }}
-          >
-            <BookOpen size={20} />
-            Read Documentation
-          </a>
-        </div>
+       
+            <a
+          href="#"
+          className="inline-flex items-center gap-3 text-lg font-semibold px-10 py-5 rounded-2xl transition-all hover:scale-105"
+          style={{ background: theme.gold, color: theme.bgDeep }}
+        >
+          <Wallet size={24} />
+          Connect Wallet to Start
+        </a>
+           
+          
 
         <p className="font-mono text-sm mt-10" style={{ color: theme.ash }}>
           No subscription • No dashboard • Pay only when it matters
