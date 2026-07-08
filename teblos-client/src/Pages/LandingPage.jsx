@@ -4,8 +4,6 @@
   Target,
   Wallet,
   ShieldCheck,
- 
-  BookOpen,
 } from "lucide-react";
 
 const theme = {

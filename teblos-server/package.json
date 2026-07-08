@@ -2,9 +2,12 @@
   "name": "teblos-server",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "main": "app.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.ts",
+    "start": "node app.ts"
   },
   "keywords": [],
   "author": "",
@@ -12,9 +15,13 @@
   "packageManager": "pnpm@10.32.1",
   "dependencies": {
     "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
     "express": "^5.2.1"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/morgan": "^1.9.10",
     "morgan": "^1.11.0",
     "nodemon": "^3.1.14"
   }
