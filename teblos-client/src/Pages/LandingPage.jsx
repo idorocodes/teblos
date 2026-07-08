@@ -20,6 +20,11 @@ const theme = {
   line: "rgba(245,242,232,0.08)",
 };
 import { AppKitButton } from '@reown/appkit/react'
+import { useAppKitAccount } from '@reown/appkit/react'
+
+
+
+
 const GlobalStyle = () => (
   <style>{`
     @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
@@ -100,15 +105,7 @@ function Navbar() {
         </div>
 
         <div className="flex items-center gap-3">
-          <a
-            href="#docs"
-            className="hidden sm:flex items-center gap-2 text-sm font-medium px-5 py-2.5 rounded-full border transition-all hover:border-white/30"
-            style={{ borderColor: theme.line, color: theme.chalk }}
-          >
-            <BookOpen size={16} />
-            Docs
-          </a>
-          
+        
           <a> < AppKitButton/> </a>
         </div>
       </nav>
@@ -118,6 +115,9 @@ function Navbar() {
 
 /* Hero Section */
 function Hero() {
+
+   const { isConnected } = useAppKitAccount()
+ 
   return (
     <section className="max-w-6xl mx-auto px-6 pt-26 pb-20 flex flex-col items-center text-center" data-aos="fade-up">
  
@@ -135,14 +135,13 @@ function Hero() {
         </p>
 
        
-            <a
+            <div
           href="#"
           className="inline-flex items-center gap-3 text-lg font-semibold px-10 py-5 rounded-2xl transition-all hover:scale-105"
           style={{ background: theme.gold, color: theme.bgDeep }}
         >
-          <Wallet size={24} />
-          Connect Wallet to Start
-        </a>
+          {isConnected ? <p>Navigating </p>:<p onClick={<AppKitButton/>} className="flex gap-6 hover:cursor-pointer"> <Wallet/> Connect Wallet to Continue</p>}
+        </div>
            
           
 
