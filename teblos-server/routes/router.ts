@@ -1,5 +1,5 @@
 import express, { Router } from "express"
-import healthStatus from "../controllers/Health.ts";
+import healthStatus from "../controllers/health.ts";
 import { pay } from "./pay.ts";
 import { balance } from "./balance.ts";
 import { signal } from "./signal.ts";
