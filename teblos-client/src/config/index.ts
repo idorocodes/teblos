@@ -1,13 +1,13 @@
 import { createAppKit } from '@reown/appkit/react'
 import { SolanaAdapter } from '@reown/appkit-adapter-solana/react'
 
-import { solana, solanaTestnet } from '@reown/appkit/networks'
+import {  solanaDevnet } from '@reown/appkit/networks'
 
 // 1. Get your Project ID
 export const projectId = 'd3b7b18a51fdb5ccf9e774056609b88d'
 
 // 2. Define your networks
-export const networks = [solana, solanaTestnet]
+export const networks = [ solanaDevnet]
 
  
 const solanaAdapter = new SolanaAdapter()

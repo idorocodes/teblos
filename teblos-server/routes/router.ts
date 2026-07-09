@@ -1,13 +1,18 @@
 import express from "express"
 import healthStatus from "../controllers/Health.ts";
-import error404 from "../middleware/error404.ts";
+import { pay } from "./pay.ts";
+import { balance } from "./balance.ts";
+import { signal } from "./signal.ts";
+import creditGate from "../middleware/creditGate.ts";
+
 
 const router = express.Router();
 
 
 
 router.get("/api/v1/health",healthStatus)
-
- 
+router.post("/pay",pay)
+router.get("/balance/:address", balance);
+router.get("/signal/:address", creditGate, signal);
 
 export default router

@@ -1,5 +1,5 @@
  import type { Request, Response, NextFunction } from "express";
-import { deductCredit, getBalance } from "../payment/credits";
+import { deductCredit, getBalance } from "../payment/credits.ts";
 
 const creditGate = (req: Request, res: Response, next: NextFunction) => {
   const walletAddress: string = req.params.address as string;
