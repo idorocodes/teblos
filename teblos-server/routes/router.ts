@@ -1,4 +1,4 @@
-import express from "express"
+import express, { Router } from "express"
 import healthStatus from "../controllers/Health.ts";
 import { pay } from "./pay.ts";
 import { balance } from "./balance.ts";
@@ -6,7 +6,7 @@ import { signal } from "./signal.ts";
 import creditGate from "../middleware/creditGate.ts";
 
 
-const router = express.Router();
+const router:Router = express.Router();
 
 
 
