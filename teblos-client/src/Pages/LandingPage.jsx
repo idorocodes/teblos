@@ -138,7 +138,7 @@ function Hero() {
           className="inline-flex items-center gap-3 text-lg font-semibold px-10 py-5 rounded-2xl transition-all hover:scale-105"
           style={{ background: theme.gold, color: theme.bgDeep }}
         >
-          {isConnected ? <p>Navigating </p>:<p onClick={<AppKitButton/>} className="flex gap-6 hover:cursor-pointer"> <Wallet/> Connect Wallet to Continue</p>}
+          {isConnected ? <p>Buy Access</p>:<p onClick={<AppKitButton/>} className="flex gap-6 hover:cursor-pointer"> <Wallet/> Connect Wallet to Continue</p>}
         </div>
            
           
