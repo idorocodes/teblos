@@ -32,7 +32,7 @@ const TREASURY_WALLET = "3aqHiBkVSGtyK4NEPmkbENo1NY4H8TgCNHnuzgTKdxfH";
 // Point this at wherever your Express server actually runs.
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:3000";
 
-const CREDIT_OPTIONS = [1, 5, 10, 25];
+const CREDIT_OPTIONS = [1,3, 5,7, 10,15, 17,25];
 
 type PayState =
   | { status: "idle" }
