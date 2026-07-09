@@ -1,3 +1,4 @@
 .env
 keypair.json
 node_modules
+teblos.db
