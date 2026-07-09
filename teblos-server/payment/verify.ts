@@ -108,7 +108,9 @@ export async function verifyPayment(
   if (senderIndex === -1) {
     return { success: false, reason: "sender_mismatch" };
   }
-
+   if (senderIndex === undefined) {
+  throw new Error("Sender account not found");
+}
   const senderDelta = postBalances[senderIndex] - preBalances[senderIndex];
 
   // Sender's balance should have gone down (allowing for fees, so just

@@ -18,7 +18,7 @@
  */
 
 import * as anchor from "@coral-xyz/anchor";
-import type { Txoracle } from "../types/txoracle";
+import type { Txoracle } from "../types/txoracle.ts";
 import txoracleIdl from "../idl/txoracle.json" with { type: "json" };
 import {
   ASSOCIATED_TOKEN_PROGRAM_ID,

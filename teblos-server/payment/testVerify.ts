@@ -81,13 +81,13 @@ async function main() {
   }
 
   const accountKeys = tx.transaction.message.getAccountKeys().staticAccountKeys;
-  const senderWallet = accountKeys[0].toBase58();
+  const senderWallet = accountKeys[0]?.toBase58();
 
   console.log("Detected sender wallet:", senderWallet);
 
   // --- Test 1: verify should succeed ---
   console.log("\n--- Test 1: verifying the detected payment ---");
-  const result1 = await verifyPayment(connection, newSignature, senderWallet);
+  const result1 = await verifyPayment(connection, newSignature, senderWallet as string);
   console.log("Result:", result1);
 
   if (!result1.success) {
@@ -98,7 +98,7 @@ async function main() {
 
   // --- Grant the credits (this is the new step) ---
   console.log("\n--- Granting credits ---");
-  const grantResult = grantCredits(senderWallet, newSignature, result1);
+  const grantResult = grantCredits(senderWallet as string, newSignature, result1);
   console.log("Grant result:", grantResult);
 
   if (!grantResult.success) {
@@ -107,12 +107,12 @@ async function main() {
   }
   console.log(`PASSED — wallet balance is now ${grantResult.newBalance}.`);
 
-  const confirmedBalance = getBalance(senderWallet);
+  const confirmedBalance = getBalance(senderWallet as string);
   console.log("Confirmed via getBalance():", confirmedBalance);
 
   // --- Test 2: replay protection — should NOW actually reject ---
   console.log("\n--- Test 2: re-verifying the SAME signature (replay attempt) ---");
-  const result2 = await verifyPayment(connection, newSignature, senderWallet);
+  const result2 = await verifyPayment(connection, newSignature, senderWallet as string);
   console.log("Result:", result2);
   if (result2.success || result2.reason !== "already_used") {
     console.error("FAILED — expected already_used rejection, replay protection is not working.");

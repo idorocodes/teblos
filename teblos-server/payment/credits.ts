@@ -11,7 +11,7 @@
  */
 
 import { db } from "../db/index.ts";
-import type { VerifyResult } from "./verify";
+import type { VerifyResult } from "./verify.ts";
 
 export type GrantResult =
   | { success: true; newBalance: number }
