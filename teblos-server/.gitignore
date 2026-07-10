@@ -2,3 +2,5 @@
 keypair.json
 node_modules
 teblos.db
+teblos.db-shm
+teblos.db-wal
