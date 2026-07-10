@@ -6,7 +6,6 @@ import router from "./routes/router.ts";
 import error404 from "./middleware/error404.ts";
 
 dotenv.config();
-
 const app = express();
 
 app.use(morgan("dev"));
