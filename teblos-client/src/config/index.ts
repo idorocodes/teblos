@@ -21,9 +21,9 @@ createAppKit({
   themeMode: 'dark', 
  
   metadata: {
-    name: 'My Web3 App',
-    description: 'My App Description',
-    url: 'https://mywebsite.com', 
+    name: 'Teblos',
+    description: 'Nothing Much',
+    url: 'https://teblos.vercel.app', 
     icons: ['https://avatars.githubusercontent.com/u/179229932']
   }
 })

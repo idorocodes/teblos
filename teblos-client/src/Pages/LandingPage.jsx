@@ -130,7 +130,7 @@ function Hero() {
 
         <p className="text-1xl lg:text-2xl max-w-2xl mx-auto mb-10" style={{ color: theme.ash }}>
           Teblos watches live football matches in real time, detects meaningful shifts in odds and momentum, 
-          and delivers clear signals on demand — paid per call in stablecoin on Solana.
+          and delivers clear signals on demand — paid per call with Solana.
         </p>
 
        
@@ -319,7 +319,7 @@ function PricingCallout() {
         }}
       >
         <h2 className="font-display text-5xl font-bold mb-6">One simple price</h2>
-        <div className="text-8xl font-display font-bold mb-4" style={{ color: theme.gold }}>$0.10</div>
+        <div className="text-8xl font-display font-bold mb-4" style={{ color: theme.gold }}>0.0010</div>
         <p className="text-2xl mb-10" style={{ color: theme.ash }}>per signal</p>
 
         <p className="max-w-md mx-auto mb-12 text-lg" style={{ color: theme.ash }}>
