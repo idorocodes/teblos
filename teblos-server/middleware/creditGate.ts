@@ -1,7 +1,7 @@
- import type { Request, Response, NextFunction } from "express";
+import type { Request, Response, NextFunction } from "express";
 import { deductCredit, getBalance } from "../payment/credits.ts";
 
-const creditGate = (req: Request, res: Response, next: NextFunction) => {
+const creditGate = async (req: Request, res: Response, next: NextFunction) => {
   const walletAddress: string = req.params.address as string;
 
   if (!walletAddress) {
@@ -12,7 +12,7 @@ const creditGate = (req: Request, res: Response, next: NextFunction) => {
     });
   }
 
-  const walletBalance = getBalance(walletAddress);
+  const walletBalance = await getBalance(walletAddress);
 
   if (walletBalance < 1) {
     return res.status(403).json({
@@ -22,14 +22,9 @@ const creditGate = (req: Request, res: Response, next: NextFunction) => {
     });
   }
 
-  // Balance is sufficient — actually deduct the credit before letting
-  // the request through. req.originalUrl gives us the endpoint for
-  // the credit_usage log.
-  const deductResult = deductCredit(walletAddress, req.originalUrl);
+  const deductResult = await deductCredit(walletAddress, req.originalUrl);
 
   if (!deductResult.success) {
-    // Rare race condition: balance was >=1 above but got spent by a
-    // concurrent request before this deduction ran.
     return res.status(403).json({
       code: 403,
       success: false,
@@ -37,8 +32,6 @@ const creditGate = (req: Request, res: Response, next: NextFunction) => {
     });
   }
 
-  // Attach the remaining balance to the request in case the route
-  // handler wants to include it in its response.
   (req as any).creditBalance = deductResult.newBalance;
 
   next();

@@ -1,13 +1,7 @@
 import type { Request, Response } from "express";
 import { getBalance } from "../payment/credits.ts";
 
-/**
- * GET /balance/:address
- *
- * Returns the current credit balance for a wallet. Used by the frontend
- * to show "you have N credits" without requiring a fresh payment.
- */
-export function balance(req: Request, res: Response) {
+export async function balance(req: Request, res: Response) {
   const walletAddress = req.params.address;
 
   if (!walletAddress) {
@@ -18,7 +12,7 @@ export function balance(req: Request, res: Response) {
     });
   }
 
-  const currentBalance = getBalance(walletAddress as string) ;
+  const currentBalance = await getBalance(walletAddress as string);
 
   return res.status(200).json({
     code: 200,

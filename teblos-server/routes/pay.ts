@@ -6,13 +6,6 @@ import { grantCredits } from "../payment/credits.ts";
 const RPC_URL = process.env.SOLANA_RPC_URL || "https://api.devnet.solana.com";
 const connection = new Connection(RPC_URL, "confirmed");
 
-/**
- * POST /pay
- * Body: { txSignature: string, walletAddress: string }
- *
- * Verifies a Solana payment on-chain, then grants credits if valid.
- * This is the HTTP-facing version of what testVerify.ts does manually.
- */
 export async function pay(req: Request, res: Response) {
   const { txSignature, walletAddress } = req.body ?? {};
 
@@ -63,7 +56,7 @@ export async function pay(req: Request, res: Response) {
 
   let grantResult;
   try {
-    grantResult = grantCredits(walletAddress, txSignature, verifyResult);
+    grantResult = await grantCredits(walletAddress, txSignature, verifyResult);
   } catch (err) {
     console.error("grantCredits threw an unexpected error:", err);
     return res.status(500).json({
@@ -74,7 +67,6 @@ export async function pay(req: Request, res: Response) {
   }
 
   if (!grantResult.success) {
- 
     return res.status(409).json({
       code: 409,
       success: false,

@@ -1,22 +1,24 @@
 /**
  * db/index.ts
  *
- * Single shared SQLite connection for Teblos, using Node's BUILT-IN
- * node:sqlite module. No native compilation, no Visual Studio, no
- * node-gyp — this ships inside Node itself (stable in recent Node 22/24).
+ * Shared Postgres connection pool for Teblos, using Neon.
+ * Import `pool` anywhere you need to run a query.
  */
 
-import { DatabaseSync } from "node:sqlite";
-import * as path from "path";
-import { fileURLToPath } from "url";
+import { Pool } from "pg";
+import  dotenv from "dotenv" 
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+dotenv.config()
+const connectionString = process.env.DATABASE_URL;
 
-const DB_PATH = path.resolve(__dirname, "../teblos.db");
+if (!connectionString) {
+  throw new Error(
+    "DATABASE_URL is not set. Add your Neon connection string to .env " +
+      "(and to Render's environment variables for the deployed service)."
+  );
+}
 
-export const db = new DatabaseSync(DB_PATH);
-
-// Foreign key constraints are off by default in SQLite unless enabled.
-db.exec("PRAGMA foreign_keys = ON;");
-db.exec("PRAGMA journal_mode = WAL;");
+export const pool = new Pool({
+  connectionString,
+  ssl: { rejectUnauthorized: false }, // Neon requires SSL
+});
